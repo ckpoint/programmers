@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class BaseTest {
+public class SolutionTest {
 
     @Test
     public void testcast_1() {
