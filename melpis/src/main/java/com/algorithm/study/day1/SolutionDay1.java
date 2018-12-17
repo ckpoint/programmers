@@ -3,7 +3,7 @@ package com.algorithm.study.day1;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution {
+public class SolutionDay1 {
     public String solution(String[] participant, String[] completion) {
         String anwer = "";
         Map<String, Integer> map = new HashMap<String, Integer>();
