@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class Solution {
 
-    Map<String, Integer> map = new HashMap<String, Integer>();
 
     public String solution(String[] participant, String[] completion) {
         assert participant.length - completion.length == 1;
+        Map<String, Integer> map = new HashMap<String, Integer>();
 
         for (String s : completion) {
             Integer val = map.get(s);
