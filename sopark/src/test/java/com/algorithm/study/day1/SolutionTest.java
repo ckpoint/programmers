@@ -1,5 +1,6 @@
-package com.algorithm.study;
+package com.algorithm.study.day1;
 
+import com.algorithm.study.day1.Solution;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

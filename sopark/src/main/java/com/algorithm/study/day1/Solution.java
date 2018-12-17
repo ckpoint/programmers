@@ -1,4 +1,4 @@
-package com.algorithm.study;
+package com.algorithm.study.day1;
 
 import java.util.Arrays;
 
