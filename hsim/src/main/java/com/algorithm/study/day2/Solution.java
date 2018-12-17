@@ -6,21 +6,18 @@ public class Solution {
 
     public String solution(int n) {
 
-        this.num = n;
         StringBuilder result = new StringBuilder();
 
-
-        for (; num > 0; num = num / 3) {
+        for (num = n; num > 0; num = num / 3) {
             result.append(getAppendStr());
         }
 
-        return result.reverse().toString().replaceAll("0", "1");
+        return result.reverse().toString();
     }
 
     private String getAppendStr() {
 
         int remainder = num % 3;
-        System.out.println(" n :  " + num + " , remainder : " + remainder);
 
         switch (remainder) {
             case 1 % 3:
