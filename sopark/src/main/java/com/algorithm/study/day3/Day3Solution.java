@@ -25,7 +25,6 @@ public class Day3Solution {
             addRightAnswerListIfRightAnswer(PERSON3_SOLUTION[i % (PERSON3_SOLUTION.length)], answer, 3);
         }
 
-        // 오름차순
         int maxCount = 0;
 
         for(Integer personNumber : personRightAnswer.keySet()){
