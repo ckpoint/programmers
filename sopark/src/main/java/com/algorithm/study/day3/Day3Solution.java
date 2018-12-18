@@ -7,12 +7,12 @@ public class Day3Solution {
     private final static int[] PERSON1_SOLUTION = {1, 2, 3, 4, 5};
     private final static int[] PERSON2_SOLUTION = {2, 1, 2, 3, 2, 4, 2, 5};
     private final static int[] PERSON3_SOLUTION = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
-    private Map<Integer, Integer> PERSION_RIGHT_ANSWER = new HashMap<>();
+    private Map<Integer, Integer> personRightAnswer = new HashMap<>();
 
     public Day3Solution() {
-        PERSION_RIGHT_ANSWER.put(1, 0);
-        PERSION_RIGHT_ANSWER.put(2, 0);
-        PERSION_RIGHT_ANSWER.put(3, 0);
+        personRightAnswer.put(1, 0);
+        personRightAnswer.put(2, 0);
+        personRightAnswer.put(3, 0);
     }
 
     public int[] solution(int[] answers) {
@@ -26,49 +26,36 @@ public class Day3Solution {
         }
 
         // 오름차순
-        int[] answer = findMaxScoreAndOrderByAsc(PERSION_RIGHT_ANSWER);
-        return answer;
-    }
+        int maxCount = 0;
 
-    private int[] findMaxScoreAndOrderByAsc(Map<Integer, Integer> totalScore) {
-        Map<Integer, Integer> sortedMap = new HashMap<>();
+        for(Integer personNumber : personRightAnswer.keySet()){
+            Integer count = personRightAnswer.get(personNumber);
 
-        Integer currentKey = null;
-        for(Integer key : totalScore.keySet()){
-            Integer value = totalScore.get(key);
-            if(value == 0) continue;
-            if(sortedMap.size() == 0){
-                currentKey = key;
-                sortedMap.put(key, value);
-                continue;
-            }
-
-            if(value > sortedMap.get(currentKey)) {
-                sortedMap.clear();
-                currentKey = key;
-                sortedMap.put(key, value);
-            }else if(value == sortedMap.get(currentKey)){
-                sortedMap.put(key, value);
+            if(count > maxCount){
+                maxCount = count;
             }
         }
 
-        int[] result = new int[sortedMap.size()];
+        List<Integer> maxCountPerson = new ArrayList<>();
+        for(Integer personNumber : personRightAnswer.keySet()){
+            Integer count = personRightAnswer.get(personNumber);
 
-        int index = 0;
-        for(Integer key : sortedMap.keySet()){
-            result[index] = key;
-            index++;
+            if(count ==0) continue;
+
+            if(maxCount == count){
+                maxCountPerson.add(personNumber);
+            }
         }
 
-        Arrays.sort(result);
-
+        Collections.sort(maxCountPerson);
+        int[] result = maxCountPerson.stream().mapToInt(i -> i).toArray();
         return result;
     }
 
     private void addRightAnswerListIfRightAnswer(int persionSoution, int answer, int personNumber) {
         if(persionSoution == answer){
-            int count = PERSION_RIGHT_ANSWER.get(personNumber);
-            PERSION_RIGHT_ANSWER.put(personNumber, ++count);
+            int count = personRightAnswer.get(personNumber);
+            personRightAnswer.put(personNumber, ++count);
         }
     }
 }
