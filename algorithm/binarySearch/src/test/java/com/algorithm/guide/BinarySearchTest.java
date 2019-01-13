@@ -20,4 +20,14 @@ public class BinarySearchTest {
     public void searchNotMatchResult() {
         assertThat( binarySearch.search(new int[]{1, 2, 3, 4}, 5), is(-1));
     }
+
+
+    @Test
+    public void searchMatchResultByArrays() {
+        assertThat( binarySearch.binarySearch(new int[]{1, 2, 3, 4}, 2), is(1));
+    }
+    @Test
+    public void searchNotMatchResultByArrays() {
+        assertThat( binarySearch.binarySearch(new int[]{1, 2, 3, 4}, 5), is(-5));
+    }
 }
