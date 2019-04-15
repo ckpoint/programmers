@@ -13,5 +13,6 @@ public class SolutionTest {
 
         System.out.println(solution.solution(new int[]{3, 30, 34, 5, 9}));
         Assert.assertTrue(solution.solution(new int[]{3, 30, 34, 5, 9}).equals("9534330"));
+        Assert.assertTrue(solution.solution(new int[]{0,0,0,0,0,0,0,0,0,0}).equals("0"));
     }
 }
