@@ -1,6 +1,7 @@
 package com.algorithm.study.day18;
 
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 class Solution {
@@ -34,5 +35,37 @@ class Solution {
         }
 
         return answer;
+    }
+
+    int CACHE_MISS_SECOND = 5;
+    int CACHE_SUCCESS_SECOND = 1;
+
+    public int solution2(int cacheSize, String[] cities) {
+
+        if(cacheSize == 0){
+            return CACHE_MISS_SECOND * cities.length;
+        }
+
+        LinkedList<String> cacheStore = new LinkedList<>();
+
+        return Arrays.stream(cities).mapToInt(value -> {
+            String lowCaseValue = value.toLowerCase();
+            boolean isFind = cacheStore.contains(lowCaseValue);
+            if(isFind){
+                cacheStore.remove(lowCaseValue);
+            }
+
+            if(cacheStore.size() == cacheSize){
+                cacheStore.removeFirst();
+            }
+
+            cacheStore.add(lowCaseValue);
+
+            if(isFind) {
+                return CACHE_SUCCESS_SECOND;
+            }else {
+                return CACHE_MISS_SECOND;
+            }
+        }).sum();
     }
 }
