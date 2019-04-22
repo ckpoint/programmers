@@ -23,8 +23,6 @@ class Solution {
                     minHeap.remove(peek);
                     minHeap.poll();
                 }
-
-
             }
         }
         if(maxHeap.size()==0 ||minHeap.size()==0){
