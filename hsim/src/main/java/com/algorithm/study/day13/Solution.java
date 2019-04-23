@@ -23,12 +23,7 @@ public class Solution {
             }
         }
 
-        int[][] result = new int[res.size()][2];
 
-        for (int i = 0; i < result.length; i++) {
-            result[i] = res.get(i);
-        }
-
-        return result;
+        return res.toArray(new int[0][2]);
     }
 }
