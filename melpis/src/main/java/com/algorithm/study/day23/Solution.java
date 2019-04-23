@@ -19,8 +19,7 @@ class Solution {
             if(poll == priorities[i-answer]){
                 answer++;
                 location--;
-                if(location <0)
-                    break;
+                        break;
             }else{
                 integers.offer(poll);
                 location--;
