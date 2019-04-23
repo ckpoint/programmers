@@ -20,34 +20,34 @@ public class Day18Test {
 
     @Test
     public void test1() {
-        assertThat(solution.solution(3,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
+        assertThat(solution.solution2(3,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
                 "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"}), is(50));
     }
     @Test
     public void test2() {
-        assertThat(solution.solution(3,new String[]{"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"
+        assertThat(solution.solution2(3,new String[]{"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"
                 }), is(21));
     }
     @Test
     public void test3() {
-        assertThat(solution.solution(2,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
+        assertThat(solution.solution2(2,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
                 "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"}), is(60));
 
     }
     @Test
     public void test4() {
-        assertThat(solution.solution(5,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
+        assertThat(solution.solution2(5,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
                 "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"}), is(52));
 
     }
     @Test
     public void test5() {
-        assertThat(solution.solution(2,new String[]{"Jeju", "Pangyo", "NewYork", "newyork"}), is(16));
+        assertThat(solution.solution2(2,new String[]{"Jeju", "Pangyo", "NewYork", "newyork"}), is(16));
 
     }
     @Test
     public void test6() {
-        assertThat(solution.solution(0,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
+        assertThat(solution.solution2(0,new String[]{"Jeju", "Pangyo", "Seoul", "NewYork",
                 "LA"}), is(25));
 
     }
