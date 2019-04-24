@@ -39,12 +39,12 @@ public class Solution {
         PriorityQueue<Integer> maxValueQueue;
         PriorityQueue<Integer> minValueQueue;
 
-        public Command() {
+        Command() {
             this.maxValueQueue = new PriorityQueue<>(Collections.reverseOrder());
             this.minValueQueue = new PriorityQueue<>();
         }
 
-        public void execute(Property command, Integer value){
+        void execute(Property command, Integer value){
             if(Property.INSERT.equals(command)){
                 this.push(value);
             }else if(Property.DELETE.equals(command)){
@@ -53,9 +53,11 @@ public class Solution {
         }
 
         private int[] getValue(){
-            int minValue = minValueQueue.peek() == null ? 0 : minValueQueue.peek();
-            int maxValue = maxValueQueue.peek() == null ? 0 : maxValueQueue.peek();
-            return new int[]{maxValue, minValue};
+            if(minValueQueue.size() == 0 || maxValueQueue.size() == 0){
+                return new int[]{0,0};
+            }
+
+            return new int[]{maxValueQueue.peek(), minValueQueue.peek()};
         }
 
         private void push(Integer value){
@@ -64,18 +66,13 @@ public class Solution {
         }
 
         private void delete(Integer value){
-            if(value == 1){
-                maxValueQueue.poll();
-                if(maxValueQueue.size() == 0){
-                    minValueQueue.clear();
-                }
-            } else if(value == -1){
-                minValueQueue.poll();
-                if(minValueQueue.size() == 0){
-                    maxValueQueue.clear();
-                }
+            if(value > 0){
+                Integer removeValue = maxValueQueue.poll();
+                minValueQueue.remove(removeValue);
+            } else {
+                Integer removeValue = minValueQueue.poll();
+                maxValueQueue.remove(removeValue);
             }
         }
     }
-
 }
