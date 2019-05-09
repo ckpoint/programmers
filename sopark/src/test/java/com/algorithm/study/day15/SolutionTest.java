@@ -13,4 +13,19 @@ public class SolutionTest {
         int result = solution.solution(new int[]{1, 1, 1, 1, 1}, 3);
         Assertions.assertThat(result).isEqualTo(5);
     }
+
+    @Test
+    public void solution2() {
+        Solution solution = new Solution();
+        int result = solution.solution(new int[]{1, 1, 1}, 3);
+        Assertions.assertThat(result).isEqualTo(1);
+    }
+
+
+    @Test
+    public void solution3() {
+        Solution solution = new Solution();
+        int result = solution.solution(new int[]{1,1,1,1,1}, 1);
+        Assertions.assertThat(result).isEqualTo(10);
+    }
 }

@@ -30,4 +30,4 @@ n개의 음이 아닌 정수가 있습니다. 이 수를 적절히 더하거나 
 
 문제에 나온 예와 같습니다.
 
-[출처]
+[출처][https://programmers.co.kr/learn/courses/30/lessons/43165]
