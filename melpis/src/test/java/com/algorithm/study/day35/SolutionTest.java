@@ -10,7 +10,7 @@ public class SolutionTest {
 
     @Test
     public void solution() {
-        assertThat(solution.solution2(new int[]{70, 50, 80, 50},100),is(3));
+        assertThat(solution.solution(new int[]{70, 50, 80, 50},100),is(3));
         assertThat(solution.solution(new int[]{40,40,40},100),is(2));
     }
 }
