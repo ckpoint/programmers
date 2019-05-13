@@ -244,8 +244,50 @@ public class Solution {
         }
         return result;
     }
+
+    // Complete the countingValleys function below.
+    static int countingValleys(int n, String s) {
+        int v =0;
+        int lvl = 0;   // current level
+        for(char c : s.toCharArray()){
+            if(c == 'U') ++lvl;
+            if(c == 'D') --lvl;
+
+            // if we just came UP to sea level
+            if(lvl == 0 && c == 'U')
+                ++v;
+        }
+        return v;
+    }
+    // Complete the rotLeft function below.
+    static int[] rotLeft(int[] a, int d) {
+        int [] result  = new int[a.length];
+        for(int i = 0; i < a.length; i++){
+            int newLocation = (i + (a.length - d)) % a.length;
+            result[newLocation] = a[i];
+        }
+
+        return result;
+    }
+
+    static int makeAnagram(String a, String b) {
+        int[] lettercounts = new int[26];
+        for(char c : a.toCharArray()){
+            lettercounts[c-'a']++;
+        }
+        for(char c : b.toCharArray()){
+            lettercounts[c-'a']--;
+        }
+        int result = 0;
+        for(int i : lettercounts){
+            result += Math.abs(i);
+        }
+        return result;
+
+    }
+
     public static void main(String[] args) throws IOException {
 
-        System.out.println(sockMerchant(9,new int[]{10 ,20 ,20, 10 ,10, 30 ,50, 10 ,20}));
+        System.out.println(countingValleys(9,"UDDDUDUU"));
     }
 }
