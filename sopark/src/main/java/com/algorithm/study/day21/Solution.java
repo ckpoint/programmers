@@ -7,20 +7,20 @@ import java.util.*;
  * 2. 처음 입력받은 함수의 index 가 중요.
  */
 public class Solution {
-    class Document {
+    private static class Document {
         private int index;
         private int value;
 
-        public Document(int index, int value) {
+        Document(int index, int value) {
             this.index = index;
             this.value = value;
         }
 
-        public int getIndex() {
+        int getIndex() {
             return index;
         }
 
-        public int getValue() {
+        int getValue() {
             return value;
         }
     }
@@ -41,6 +41,7 @@ public class Solution {
         Collections.reverse(distictNumber);
 
         int resultIndex = 1;
+
         int documentSize = documents.size();
         while (result.size() != documentSize) {
             Document document = documents.poll();
